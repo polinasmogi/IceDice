@@ -18,14 +18,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.449"
-        app:srcCompat="@drawable/dice_start" />
+        app:srcCompat="@drawable/dice_6" />s
 
     <TextView
         android:id="@+id/txtScore"
         android:layout_width="180dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
-        android:text="0"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,12 +35,12 @@
         app:layout_constraintVertical_bias="0.291" />
 
     <Button
-        android:id="@+id/btnHold"
+        android:id="@+id/btnStartRound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="168dp"
         android:onClick="onClick"
-        android:text="Hold"
+        android:text="Start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -52,22 +51,20 @@
         android:id="@+id/txtFirstPlayerScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.253"
+        app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnHold"
-        app:layout_constraintVertical_bias="0.422" />
+        app:layout_constraintTop_toBottomOf="@+id/btnStartRound"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txtSecondPlayerScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
         app:layout_constraintBottom_toBottomOf="@+id/txtFirstPlayerScore"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintHorizontal_bias="0.689"
         app:layout_constraintStart_toEndOf="@+id/txtFirstPlayerScore"
         app:layout_constraintTop_toTopOf="@+id/txtFirstPlayerScore"
         app:layout_constraintVertical_bias="0.0" />
@@ -76,14 +73,27 @@
         android:id="@+id/txtTurn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:textAlignment="center"
         android:textSize="25sp"
+        android:text="EVERYTHING BUT SIX"
         app:layout_constraintBottom_toTopOf="@+id/txtScore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.604" />
+
+    <Button
+        android:id="@+id/btnNewGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="New game"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStartRound"
+        app:layout_constraintVertical_bias="0.283" />
 
 
 </android.support.constraint.ConstraintLayout>

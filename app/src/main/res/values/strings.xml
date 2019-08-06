@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Ice Dice</string>
+    <item type="id" name="btnStartRound" />
+    <item type="id" name="btnHold" />
 </resources>
