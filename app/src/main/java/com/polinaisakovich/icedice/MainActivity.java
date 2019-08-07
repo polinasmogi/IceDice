@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnDice;
     private Button btnHoldAndNewRound;
 
-    private static final int SCORE_TO_WIN = 10;
+    private static final int SCORE_TO_WIN = 60;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
