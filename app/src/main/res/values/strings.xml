@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Ice Dice</string>
-    <item type="id" name="btnStartRound" />
-    <item type="id" name="btnHold" />
+    <string name="all_start_round">START ROUND</string>
+    <string name="all_hold">HOLD</string>
+    <string name="player_1_name">PLAYER 1</string>
+    <string name="player_2_name">PLAYER 2</string>
+    <string name="player_1_wins">Player 1 wins</string>
+    <string name="player_2_wins">Player 2 wins</string>
 </resources>

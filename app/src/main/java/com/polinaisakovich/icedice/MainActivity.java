@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Random;
 
@@ -18,8 +17,10 @@ public class MainActivity extends AppCompatActivity {
     Player player2 = new Player();
 
     private TextView turnView;
+    private boolean player1Turn = true;
 
     private TextView currentScoreView; //The display of the current score (sum of all scores)
+    private int currentScore = 0; //The sum of all scores of the round
 
     private TextView firstPlayerScoreView; //The display of 1 player total score
     private TextView secondPlayerScoreView; //The display of 2 player total score
@@ -27,10 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnDice;
     private Button btnHoldAndNewRound;
 
-    private int currentScore = 0; //The sum of all scores of the round
-
-    private boolean player1Turn = true;
-
+    private static final int SCORE_TO_WIN = 40;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
             currentScoreView.setText(Integer.toString(currentScore));
             checkForWin();
             player1Turn = !player1Turn;
+            displayTurn();
             changeButton();
         } else {
             player2.score += currentScore;
@@ -125,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             currentScoreView.setText(Integer.toString(currentScore));
             checkForWin();
             player1Turn = !player1Turn;
+            displayTurn();
             changeButton();
         }
 
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         btnDice.setEnabled(true);
         btnDice.setImageResource(R.drawable.dice_start);
         btnHoldAndNewRound.setId(R.id.btnHold);
-        btnHoldAndNewRound.setText("HOLD");
+        btnHoldAndNewRound.setText(R.string.all_hold);
         displayTurn();
     }
 
@@ -144,6 +144,8 @@ public class MainActivity extends AppCompatActivity {
         player2.score = 0;
         currentScore = 0;
         btnDice.setImageResource(R.drawable.dice_start);
+        btnDice.setEnabled(true);
+        btnHoldAndNewRound.setEnabled(true);
         firstPlayerScoreView.setText(Integer.toString(player1.score));
         secondPlayerScoreView.setText(Integer.toString(player2.score));
         player1Turn = true;
@@ -152,23 +154,29 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayTurn() {
         if (player1Turn) {
-            turnView.setText("PLAYER 1");
+            turnView.setText(R.string.player_1_name);
         } else {
-            turnView.setText("PLAYER 2");
+            turnView.setText(R.string.player_2_name);
         }
     }
 
     private void checkForWin() {
-        if (player1.score >= 40) {
-            currentScoreView.setText("Player 1 wins");
-        } else if (player2.score >= 40) {
-            currentScoreView.setText("Player 2 wins");
+        if (player1.score >= SCORE_TO_WIN) {
+            currentScoreView.setText(R.string.player_1_wins);
+            turnView.setText("");
+            btnDice.setEnabled(false);
+            btnHoldAndNewRound.setEnabled(false);
+        } else if (player2.score >= SCORE_TO_WIN) {
+            currentScoreView.setText(R.string.player_2_wins);
+            turnView.setText("")
+            btnDice.setEnabled(false);
+            btnHoldAndNewRound.setEnabled(false);
         }
     }
 
     private void changeButton() {
         btnHoldAndNewRound.setId(R.id.btnStartRound);
         btnDice.setEnabled(false);
-        btnHoldAndNewRound.setText("START ROUND");
+        btnHoldAndNewRound.setText(R.string.all_start_round);
     }
 }
