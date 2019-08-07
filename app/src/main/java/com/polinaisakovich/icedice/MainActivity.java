@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnDice;
     private Button btnHoldAndNewRound;
 
-    private static final int SCORE_TO_WIN = 40;
+    private static final int SCORE_TO_WIN = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,22 +113,20 @@ public class MainActivity extends AppCompatActivity {
             firstPlayerScoreView.setText(Integer.toString(player1.score));
             currentScore = 0;
             currentScoreView.setText(Integer.toString(currentScore));
+            displayTurn();
             checkForWin();
             player1Turn = !player1Turn;
-            displayTurn();
             changeButton();
         } else {
             player2.score += currentScore;
             secondPlayerScoreView.setText(Integer.toString(player2.score));
             currentScore = 0;
             currentScoreView.setText(Integer.toString(currentScore));
+            displayTurn();
             checkForWin();
             player1Turn = !player1Turn;
-            displayTurn();
             changeButton();
         }
-
-        displayTurn();
     }
 
     public void actionStartRound() {
@@ -162,13 +160,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkForWin() {
         if (player1.score >= SCORE_TO_WIN) {
-            currentScoreView.setText(R.string.player_1_wins);
-            turnView.setText("");
+            turnView.setText(R.string.player_1_wins);
+            currentScoreView.setText("");
             btnDice.setEnabled(false);
             btnHoldAndNewRound.setEnabled(false);
         } else if (player2.score >= SCORE_TO_WIN) {
-            currentScoreView.setText(R.string.player_2_wins);
-            turnView.setText("")
+            turnView.setText(R.string.player_2_wins);
+            currentScoreView.setText("");
             btnDice.setEnabled(false);
             btnHoldAndNewRound.setEnabled(false);
         }

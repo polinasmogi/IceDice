@@ -4,6 +4,6 @@
     <string name="all_hold">HOLD</string>
     <string name="player_1_name">PLAYER 1</string>
     <string name="player_2_name">PLAYER 2</string>
-    <string name="player_1_wins">Player 1 wins</string>
-    <string name="player_2_wins">Player 2 wins</string>
+    <string name="player_1_wins">PLAYER 1 WINS</string>
+    <string name="player_2_wins">PLAYER 2 WINS</string>
 </resources>
